@@ -22,7 +22,9 @@ if __name__=="__main__":
         namedict[name] = create_possible_arxiv_name(name)
     localindex, localname = findlocalindex(df_today, namedict)
     local = df_today.iloc[localindex]
-    local["localname"]=localname 
+    local["Local Authors"]=[", ".join([y.title() for y in x]) for x in localname]
+    local['title']=[x.title()for x in local['title'].values]
+    local['authors']=[", ".join([y.title() for y in x]) for x in local['authors'].values]
     f = open("./html/main.html","w")
-    f.write(local[['title', 'id', 'url','authors', 'localname', ]].to_html(render_links=True))
+    f.write(local[['title', 'id', 'url','authors', 'Local Authors', ]].to_html(render_links=True, index=False))
     f.close()
