@@ -5,9 +5,13 @@ import numpy as np
 from datetime import datetime,timedelta
 import arxivscraper
 import pandas as pd
+import sys
 
 if __name__=="__main__":
     allName = getnamefromlink(["https://ccapp.osu.edu/people-mobile",'https://astronomy.osu.edu/people']) 
+    if len(sys.argv)>1:
+        if sys.argv[1] =="ASIAA":
+            allName = getnamefromlinkASIAA(["https://www.asiaa.sinica.edu.tw/people/"]) 
     interested_date = datetime.today().strftime("%Y-%m-%d")
     print(interested_date)
     scraper = arxivscraper.Scraper(category='physics:astro-ph', date_from=interested_date,date_until="2100-01-27")

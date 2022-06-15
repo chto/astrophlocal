@@ -10,6 +10,18 @@ def getnamefromlink(linklist):
     allName = np.unique(allName)
     return allName
 
+def getnamefromlinkASIAA(linklist):
+    allName = []
+    for link in linklist:
+        res = requests.get(link,verify=False, timeout=10)
+        allNamein = re.findall(r'"grp_name\s*(.*?)\s*</a>', res.text)
+        allNamein = [name.split(">")[-1] for name in allNamein]
+        allNamein=[" ".join(re.split(' +', name)[:-1]) for name in allNamein]
+        allNamein = [name.split("(")[0] for name in allNamein]
+        allName.extend([" ".join(name.split(",")[::-1]).lstrip().rstrip() for name in allNamein])
+    allName = np.unique(allName)
+    return allName
+
 def create_possible_arxiv_name(name):
     result = re.search(r'\((.*?)\)',name)
     name = name.split("(")[0]
