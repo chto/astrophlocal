@@ -1,0 +1,4 @@
+requests
+numpy 
+arxivscraper
+pandas
