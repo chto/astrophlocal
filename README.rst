@@ -17,10 +17,14 @@ Installation
     
 Example
 -------
-Simply do 
+For CCAPP/OSU people, simply do 
 
 :: 
 
   sh run.sh
 
+or if you are ASIAA member, please do 
+::
+
+    sh bash.sh ASIAA
 This will generate a html file under html directory and open it with the browser 
