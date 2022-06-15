@@ -1,2 +1,2 @@
 python astrophlocal/main.py
-open html/main.html
+#open html/main.html
