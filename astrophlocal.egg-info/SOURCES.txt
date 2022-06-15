@@ -1,0 +1,8 @@
+README.md
+setup.py
+astrophlocal.egg-info/PKG-INFO
+astrophlocal.egg-info/SOURCES.txt
+astrophlocal.egg-info/dependency_links.txt
+astrophlocal.egg-info/not-zip-safe
+astrophlocal.egg-info/requires.txt
+astrophlocal.egg-info/top_level.txt

@@ -1,0 +1,20 @@
+Metadata-Version: 1.2
+Name: astrophlocal
+Version: 0.0.3
+Summary: arxivlocal
+Home-page: https://github.com/chto/astrophlocal
+Author: Chun-Hao To
+Author-email: chunhaoto@gmail.com
+License: MIT license
+Description: UNKNOWN
+Keywords: astrophlocal
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
