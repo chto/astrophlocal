@@ -30,7 +30,7 @@ def create_possible_arxiv_name(name):
     allpossible =  ["^"+r" +[a-zA-Z]*\W* *".join([val[0], val[-1]])+"$","^"+r" *[a-zA-Z]*\W* +".join([val[0][0]+"\.", val[-1]])+"$"]
     
     if result is not None:
-        allpossible.extend(["\W*[a-zA-Z]*\W*"+result.group(1)])
+        allpossible.extend(["^"+r" +[a-zA-Z]*\W* *".join([val[0], result.group(1)])+"$","^"+r" *[a-zA-Z]*\W* +".join([val[0][0]+"\.", result.group(1)])+"$"])
     return allpossible
 
 def findlocalindex(df_today, namedict):
