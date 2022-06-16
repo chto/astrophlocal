@@ -1,8 +1,9 @@
 #!/bin/bash
-#SNATCH --account=pcon0003
+#SBATCH --account=pcon0003
 #SBATCH --job-name=persistent_arxov
 #SBATCH --dependency=singleton
-#SBATCH --time=24:00:00
+#SBATCH --time=00:10:00
+#SBATCH --ntasks=1
 #SBATCH --signal=B:SIGUSR1@90
 # catch the SIGUSR1 signal
 _resubmit() {

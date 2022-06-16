@@ -6,15 +6,23 @@ from datetime import datetime,timedelta
 import arxivscraper
 import pandas as pd
 import sys
+import argparse
+parser = argparse.ArgumentParser(description='generate arxiv summary of papers from local people')
+parser.add_argument('--institute', default="CCAPP", help='provide the institute you are in (default: CCAPP)')
+parser.add_argument('--start_date', default=datetime.today().strftime("%Y-%m-%d"), help='provide the first date you are interested to get the arxiv paper (format: YYYY-MM-DD, default:today')
+parser.add_argument('--end_date', default=datetime.today().strftime("%Y-%m-%d"), help='provide the last date you are interested to get the arxiv paper (format: YYYY-MM-DD, default:2100-01-27')
+
 
 if __name__=="__main__":
-    allName = getnamefromlink(["https://ccapp.osu.edu/people-mobile",'https://astronomy.osu.edu/people']) 
-    if len(sys.argv)>1:
-        if sys.argv[1] =="ASIAA":
-            allName = getnamefromlinkASIAA(["https://www.asiaa.sinica.edu.tw/people/"]) 
-    interested_date = datetime.today().strftime("%Y-%m-%d")
-    print(interested_date)
-    scraper = arxivscraper.Scraper(category='physics:astro-ph', date_from=interested_date,date_until="2100-01-27")
+    args = parser.parse_args()
+    if args.institute=="CCAPP":
+        allName = getnamefromlink(["https://ccapp.osu.edu/people-mobile",'https://astronomy.osu.edu/people']) 
+    elif args.institute=="ASIAA":
+        allName = getnamefromlinkASIAA(["https://www.asiaa.sinica.edu.tw/people/"]) 
+    else:
+        raise NotImplementedError("{0} is not implemented".format(args.institute))
+    interested_date = args.start_date
+    scraper = arxivscraper.Scraper(category='physics:astro-ph', date_from=interested_date,date_until=args.end_date)
     output = scraper.scrape()
     delta2 = timedelta(days=5)
     created_date=(datetime.fromisoformat(interested_date)-delta2)#.strftime("%Y-%m-%d")

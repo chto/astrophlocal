@@ -5,7 +5,7 @@
 from setuptools import setup, find_packages
 
 
-requirements = ["requests", "numpy ", "arxivscraper", "pandas"]
+requirements = ["requests", "numpy ", "arxivscraper", "pandas", "argparse"]
 
 
 setup(
