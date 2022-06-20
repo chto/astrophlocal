@@ -10,7 +10,7 @@ import argparse
 parser = argparse.ArgumentParser(description='generate arxiv summary of papers from local people')
 parser.add_argument('--institute', default="CCAPP", help='provide the institute you are in (default: CCAPP)')
 parser.add_argument('--start_date', default=datetime.today().strftime("%Y-%m-%d"), help='provide the first date you are interested to get the arxiv paper (format: YYYY-MM-DD, default:today')
-parser.add_argument('--end_date', default=datetime.today().strftime("%Y-%m-%d"), help='provide the last date you are interested to get the arxiv paper (format: YYYY-MM-DD, default:2100-01-27')
+parser.add_argument('--end_date', default='2100-01-27', help='provide the last date you are interested to get the arxiv paper (format: YYYY-MM-DD, default:2100-01-27')
 
 
 if __name__=="__main__":
